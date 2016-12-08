@@ -3,7 +3,7 @@
 
 This is for an assignment in programming class.  
 Right now it includes:
-- Simple sort
+- Selection sort
 - Bubble sort
 
 Mabye I'll add some more later.
