@@ -63,14 +63,15 @@ class Main {
         BubbleReturn retVal = new BubbleReturn();
         retVal.newArray = newArray;
         for (int i = 0; i < newArray.length; i++) {
-            boolean hasSwaped = false;
-            for (int j = newArray.length-1; j-1 >= i ; j--) {
+            boolean hasSwapped = false;
+            for (int j = newArray.length-1; j-1 >= i; j--) {
                 if (newArray[j-1] > newArray[j]) {
                     swap(newArray, j-1, j);
-                    hasSwaped = true;
+                    hasSwapped = true;
                 }
             }
-            if (!hasSwaped) {
+            // If nothing has swapped, exit early
+            if (!hasSwapped) {
                 retVal.early = (i+1);
                 return retVal;
             }
@@ -91,18 +92,18 @@ class Main {
         long sSimpleTime = new Date().getTime();
         int[] newSimpleArray = simpleSort(array);
         long eSimpleTime = new Date().getTime();
-        printArray(newSimpleArray);
+        //printArray(newSimpleArray);
 
         long sBubbleTime = new Date().getTime();
         BubbleReturn bubVal = bubbleSort(array);
         long eBubbleTime = new Date().getTime();
-        printArray(bubVal.newArray);
+        //printArray(bubVal.newArray);
 
-
-        System.out.println("Simple sort tog " + (eSimpleTime-sSimpleTime) + " millisekunder");
-        System.out.println("Bubble sort tog " + (eBubbleTime-sBubbleTime) + " millisekunder");
+        //Print time taken
+        System.out.println("Simple sort took " + (eSimpleTime-sSimpleTime) + " milliseconds");
+        System.out.println("Bubble sort took " + (eBubbleTime-sBubbleTime) + " milliseconds");
         if (bubVal.early != 0) {
-            System.out.println("Bubble sort exited early on itration " + bubVal.early);
+            System.out.println("Bubble sort exited early on iteration " + bubVal.early);
         }
     }
 }
