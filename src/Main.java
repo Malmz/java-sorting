@@ -17,7 +17,7 @@ class Main {
         array[index2] = tmp;
     }
 
-    //Generate an int array with random numbers.
+    //Generate an int array with random numbers
     private static int[] genRandomArray(int length, int range) {
         int[] array = new int[length];
         for (int i = 0; i < length; i++) {
@@ -26,7 +26,7 @@ class Main {
         return array;
     }
 
-    //Print an int array with nice formatting.
+    //Print an int array with nice formatting
     private static void printArray(int[] array) {
         int rowIndex = 1;
         for (int item: array) {
@@ -42,7 +42,7 @@ class Main {
         System.out.println();
     }
 
-    //Java implementation of simple sort.
+    //Java implementation of simple sort for int[]
     private static int[] simpleSort(int[] array) {
         int[] newArray = array.clone();
         for (int index = 0; index < newArray.length; index++) {
@@ -57,7 +57,7 @@ class Main {
         return newArray;
     }
 
-    //Java implementation of bubble sort
+    //Java implementation of bubble sort for int[]
     private static BubbleReturn bubbleSort(int[] array) {
         int[] newArray = array.clone();
         BubbleReturn retVal = new BubbleReturn();
@@ -80,6 +80,20 @@ class Main {
         return retVal;
     }
 
+    private static int[] insertionSort(int[] array) {
+        int[] sorted = new int[array.length];
+        sorted[0] = array[0];
+        for (int i = 1; i < array.length; i++) {
+            int j = i;
+            while (0 < j && array[i] < sorted[j-1]) {
+                sorted[j] = sorted[j-1];
+                j--;
+            }
+            sorted[j] = array[i];
+        }
+        return sorted;
+    }
+
     public static void main(String[] args) {
 
         int length = Konsol.readInt("Array length? ");
@@ -99,8 +113,14 @@ class Main {
         long eBubbleTime = new Date().getTime();
         //printArray(bubVal.newArray);
 
+        long sInsertTime = new Date().getTime();
+        int[] newInsertArray = insertionSort(array);
+        long eInsertTime = new Date().getTime();
+        //printArray(newInsertArray);
+
         //Print time taken
         System.out.println("Simple sort took " + (eSimpleTime-sSimpleTime) + " milliseconds");
+        System.out.println("Insertion sort took " + (eInsertTime-sInsertTime) + " milliseconds");
         System.out.println("Bubble sort took " + (eBubbleTime-sBubbleTime) + " milliseconds");
         if (bubVal.early != 0) {
             System.out.println("Bubble sort exited early on iteration " + bubVal.early);
