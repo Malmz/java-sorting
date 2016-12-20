@@ -45,14 +45,14 @@ class Main {
     //Java implementation of simple sort for int[]
     private static int[] simpleSort(int[] array) {
         int[] newArray = array.clone();
-        for (int index = 0; index < newArray.length; index++) {
-            int smallest = index;
-            for (int innerIndex = index+1; innerIndex < newArray.length; innerIndex++) {
-                if (newArray[innerIndex] < newArray[smallest]) {
-                    smallest = innerIndex;
+        for (int i = 0; i < newArray.length; i++) {
+            int smallest = i;
+            for (int j = i+1; j < newArray.length; j++) {
+                if (newArray[j] < newArray[smallest]) {
+                    smallest = i;
                 }
             }
-            swap(newArray, index, smallest);
+            swap(newArray, i, smallest);
         }
         return newArray;
     }
