@@ -1,5 +1,3 @@
-import main.Konsol;
-
 import java.util.Date;
 
 //Used for multiple return values
@@ -172,8 +170,8 @@ class Main {
 
     public static void main(String[] args) {
 
-        int length = Konsol.readInt("Array length? ");
-        int range = Konsol.readInt("Number range? ");
+        int length = Kbd.readInt("Array length? ");
+        int range = Kbd.readInt("Number range? ");
 
         //Create an array with random values
         int[] array = genRandomArray(length, range);
